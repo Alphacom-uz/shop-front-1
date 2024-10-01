@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Stack } from "@mui/material";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -37,6 +38,7 @@ const ExpandMore = styled((props) => {
 export default function CardComponent({
   title = "Card title",
   description = "Card description something else again this could be get down get...",
+  price = 120000,
 }) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -52,28 +54,26 @@ export default function CardComponent({
         image="https://files-api.itpoint.uz/orient-motors/images/original/desktopPhoneBg.png"
         alt="Paella dish"
       />
-      <CardContent>
-        <Typography variant="body1">{title}</Typography>
+      <CardContent sx={{ padding: "8px !important" }}>
+        <Typography
+          variant="body1"
+          component="a"
+          href={`/product/21`}
+          sx={{ textDecoration: "none", color: "black" }}
+        >
+          {title}
+        </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {description.slice(0, 30)}
         </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
+          <Typography>{price.toLocaleString()} so'm</Typography>
+        </Stack>
+      </CardContent>
     </Card>
   );
 }

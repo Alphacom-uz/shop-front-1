@@ -1,12 +1,14 @@
 import Layout from "../components/layout/Layout.component";
+import MainSlider from "../components/main-slider/MainSlider.component";
 import Section from "../components/section/main-page/Section.component";
 
 const MainPage = () => {
   return (
     <Layout>
-      <Section title="Eng mashhur mahsulotlar" />
-      <Section title="Eng sara mahsulotlar" />
-      <Section title="Eng yangi mahsulotlar" />
+      <MainSlider />
+      <Section title="Eng mashhurlari" />
+      <Section title="Eng saralari" />
+      <Section title="Eng yangilari" />
     </Layout>
   );
 };
