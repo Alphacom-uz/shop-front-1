@@ -13,6 +13,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import HeadDrawer from "../head-drawer/HeadDrawer.component";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import BasketDrawer from "../basket-drawer/BasketDrawer.component";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -22,6 +24,11 @@ function Header() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const [open, setOpen] = React.useState(false);
+  const [basket, setBasket] = React.useState(false);
+
+  const toggleBasket = (open) => () => {
+    setBasket(open);
+  };
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -47,23 +54,6 @@ function Header() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -129,8 +119,17 @@ function Header() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+          <Box
+            sx={{ flexGrow: 0, display: "flex", alignItems: "center", gap: 1 }}
+          >
+            <Tooltip title="Savat">
+              <IconButton onClick={toggleBasket(true)}>
+                <ShoppingCartIcon
+                  sx={{ "&.MuiSvgIcon-root": { fill: "white" } }}
+                />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Profile">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -163,6 +162,7 @@ function Header() {
         </Toolbar>
       </Container>
       <HeadDrawer open={open} toggleDrawer={toggleDrawer} />
+      <BasketDrawer open={basket} toggleDrawer={toggleBasket} />
     </AppBar>
   );
 }
