@@ -65,10 +65,6 @@ const ProductsPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      {/* <MainSlider />
-      <Section title="Eng mashhurlari" />
-      <Section title="Eng saralari" />
-      <Section title="Eng yangilari" /> */}
     </Layout>
   );
 };

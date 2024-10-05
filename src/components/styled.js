@@ -1,4 +1,4 @@
-import { alpha, InputBase, styled } from "@mui/material";
+import { alpha, InputBase, styled, Typography } from "@mui/material";
 
 export const BaseInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -39,4 +39,35 @@ export const BaseInput = styled(InputBase)(({ theme }) => ({
       borderColor: "#2D3843",
     }),
   },
+}));
+
+export const CustomLabelInput = styled(Typography)(() => ({
+  color: "rgba(0, 0, 0, 0.6)",
+  fontFamily: " 'Roboto', 'Helvetica', 'Arial', sans-serif",
+  fontWeight: 400,
+  fontSize: "1rem",
+  lineHeight: "1.4375em",
+  letterSpacing: "0.00938em",
+  padding: 0,
+  display: "block",
+  transformOrigin: "top left",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  maxWidth: "100%",
+  textAlign: "start",
+  "-webkit-transform": "translate(0, 20px) scale(1)",
+  "-moz-transform": "translate(0, 20px) scale(1)",
+  "-ms-transform": "translate(0, 20px) scale(1)",
+  transform: "translate(0, 20px) scale(1)",
+  "-webkit-transform": "translate(0, -1.5px) scale(0.75)",
+  "-moz-transform": "translate(0, -1.5px) scale(0.75)",
+  "-ms-transform": "translate(0, -1.5px) scale(0.75)",
+  transform: "translate(0, -1.5px) scale(0.75)",
+  transformOrigin: "top left",
+  maxWidth: "133%",
+  "-webkit-transition":
+    "color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms",
+  transition:
+    "color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms",
 }));

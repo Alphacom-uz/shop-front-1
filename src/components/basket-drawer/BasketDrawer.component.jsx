@@ -4,8 +4,10 @@ import Drawer from "@mui/material/Drawer";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import BasketCard from "../basket-card/BasketCard.component";
+import { useNavigate } from "react-router-dom";
 
 const BasketDrawer = ({ open, toggleDrawer }) => {
+  const navigate = useNavigate();
   const content = (
     <Box sx={{ width: 300 }} role="presentation">
       <Stack height="100dvh" direction="column" position="relative">
@@ -53,7 +55,12 @@ const BasketDrawer = ({ open, toggleDrawer }) => {
           right={0}
           width="100%"
         >
-          <Button fullWidth variant="contained" color="error">
+          <Button
+            fullWidth
+            variant="contained"
+            color="error"
+            onClick={() => navigate("/cart")}
+          >
             Sotib olish
           </Button>
         </Stack>
