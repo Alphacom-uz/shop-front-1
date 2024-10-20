@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography, Button, Dialog, IconButton } from "@mui/material";
 import Layout from "../components/layout/Layout.component";
 import Slider from "react-slick"; // react-slick slider
@@ -44,6 +44,11 @@ const ProductDetailPage = () => {
     setOpen(false);
     setSelectedImageIndex(0);
   };
+
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Layout>
