@@ -1,10 +1,12 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import ErrorPage from "../pages/Error.page";
-import MainPage from "../pages/Main.page";
-import ProductsPage from "../pages/Products.page";
-import ProductDetailPage from "../pages/ProductDetail.page";
-import ProfilePage from "../pages/Profile.page";
-import CartPage from "../pages/Cart.page";
+
+const MainPage = lazy(() => import("../pages/Main.page"));
+const ProductsPage = lazy(() => import("../pages/Products.page"));
+const ProductDetailPage = lazy(() => import("../pages/ProductDetail.page"));
+const ProfilePage = lazy(() => import("../pages/Profile.page"));
+const CartPage = lazy(() => import("../pages/Cart.page"));
+const ErrorPage = lazy(() => import("../pages/Error.page"));
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 
