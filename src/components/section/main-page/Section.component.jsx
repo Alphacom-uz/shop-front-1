@@ -10,8 +10,20 @@ const Section = ({ title = "Section title", cards = [] }) => {
     <Stack direction="column" gap="20px">
       <StyledSectionTitle>{title}</StyledSectionTitle>
       <Grid container spacing={{ xs: 1, sm: 1.2, md: 1.5 }}>
-        {ITEMS.map((item) => (
-          <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+        {ITEMS.map((item, index) => (
+          <Grid
+            key={index + 1}
+            item size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+            sx={{
+              cursor: "pointer",
+              borderRadius: "20px !important",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                boxShadow: `0px 2px 20px #555`,
+              }
+            }}
+            onClick={() => navigate(`/product/${index + 1}`)}
+          >
             <Card />
           </Grid>
         ))}

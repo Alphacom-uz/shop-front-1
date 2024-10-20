@@ -19,7 +19,7 @@ export default function CardComponent({
   };
 
   return (
-    <Card sx={{ maxWidth: "100%" }}>
+    <Card sx={{ maxWidth: "100%", borderRadius: "20px",}}>
       <CardMedia
         component="img"
         height="194"
