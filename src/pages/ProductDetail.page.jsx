@@ -1,27 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Grid, Typography, Button, Dialog, IconButton } from "@mui/material";
+import { Box, Typography, Button, Dialog, IconButton, Grid } from "@mui/material";
 import Layout from "../components/layout/Layout.component";
 import Slider from "react-slick"; // react-slick slider
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomInIcon from '@mui/icons-material/ZoomIn'; // Import zoom icon
-
-// Example slider images
-const images = [
-  'https://cdn.pixabay.com/photo/2024/01/17/12/06/car-8514314_640.png',
-  'https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg',
-  'https://img.freepik.com/premium-photo/red-1969-dodge-challenger_62972-59481.jpg',
-  'https://img.freepik.com/premium-photo/sports-muscle-car-walpapers_862994-454227.jpg?w=360',
-];
-
-// Additional product information
-const productDetails = {
-  image: 'https://cdn.pixabay.com/photo/2024/01/17/12/06/car-8514314_640.png', // Image to display below product details
-  description: `This product is a high-quality car that provides excellent performance and comfort. 
-  It is suitable for both city driving and long journeys. Features include a powerful engine, modern technology, 
-  and a spacious interior that ensures a pleasant driving experience.`,
-};
 
 const ProductDetailPage = () => {
   const [open, setOpen] = useState(false);
@@ -49,6 +33,22 @@ const ProductDetailPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Example slider images
+  const images = [
+    'https://cdn.pixabay.com/photo/2024/01/17/12/06/car-8514314_640.png',
+    'https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg',
+    'https://img.freepik.com/premium-photo/red-1969-dodge-challenger_62972-59481.jpg',
+    'https://img.freepik.com/premium-photo/sports-muscle-car-walpapers_862994-454227.jpg?w=360',
+  ];
+
+  // Additional product information
+  const productDetails = {
+    image: 'https://cdn.pixabay.com/photo/2024/01/17/12/06/car-8514314_640.png', // Image to display below product details
+    description: `This product is a high-quality car that provides excellent performance and comfort. 
+  It is suitable for both city driving and long journeys. Features include a powerful engine, modern technology, 
+  and a spacious interior that ensures a pleasant driving experience.`,
+  };
 
   return (
     <Layout>

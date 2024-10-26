@@ -16,6 +16,7 @@ import HeadDrawer from "../head-drawer/HeadDrawer.component";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import BasketDrawer from "../basket-drawer/BasketDrawer.component";
 import { Slide, useScrollTrigger } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -41,6 +42,8 @@ function Header() {
   const [open, setOpen] = React.useState(false);
   const [basket, setBasket] = React.useState(false);
 
+  const navigate = useNavigate();
+
   const toggleBasket = (open) => () => {
     setBasket(open);
   };
@@ -61,6 +64,7 @@ function Header() {
   };
 
   const handleCloseUserMenu = () => {
+    navigate("/profile");
     setAnchorElUser(null);
   };
 
